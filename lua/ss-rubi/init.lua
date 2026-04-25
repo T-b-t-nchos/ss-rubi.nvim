@@ -15,7 +15,7 @@ M.config = {
         api = {
             url = "https://api.excelapi.org/language/kanji2kana",
             contentQuery = "text",
-            otherQuery = {{}},
+            otherQuery = { {} },
 
             -- otherQuery = {{ key = "xxx"}, },
         }
