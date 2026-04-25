@@ -127,10 +127,10 @@ end
 --------------------------------------------------------------------------------
 
 function M.InsertRubi(mode, _)
-    local target = "Taget"
+    local target = "Target"
 
     if mode == "v" then
-        target = get_visual_text() or "Taget"
+        target = get_visual_text() or "Target"
     end
 
     local text = BASE:gsub("T", target)
@@ -149,7 +149,7 @@ function M.InsertRubiAndAC(_)
         return
     end
 
-    local target = get_visual_text() or "Taget"
+    local target = get_visual_text() or "Target"
 
     local text = BASE:gsub("T", target):gsub("R", kanji2kana(target))
 
