@@ -18,7 +18,7 @@ M.config = {
             otherQuery = { {} },
 
             -- otherQuery = {{ key = "xxx"}, },
-        }
+        },
     },
 
 }
