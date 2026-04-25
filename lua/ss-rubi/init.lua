@@ -64,14 +64,7 @@ local function move_back_one()
 end
 
 local function insert_at(text, row, col)
-    vim.api.nvim_buf_set_text(
-        0,
-        row - 1,
-        col,
-        row - 1,
-        col,
-        { text }
-    )
+    vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { text })
 end
 
 local function insert_at_cursor(text)
