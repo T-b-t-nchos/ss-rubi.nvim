@@ -4,20 +4,15 @@
 local M = {}
 
 M.config = {
-    -- false(default): ｜対象《ルビ》
-    -- true: |対象《ルビ》
     useHWVerticalBar = false,
 
     autoComplete = {
-        -- If you want to usee Auto Complete, you have to agree to the ToS of used API.
         enable = false,
 
         api = {
             url = "https://api.excelapi.org/language/kanji2kana",
             contentQuery = "text",
             otherQuery = { {} },
-
-            -- otherQuery = {{ key = "xxx"}, },
         },
     },
 }
