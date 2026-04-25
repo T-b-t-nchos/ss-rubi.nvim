@@ -75,9 +75,10 @@ local function replace_visual(text)
     if mode == "v" then
         vim.cmd('normal! gv"_d')
         insert_at_cursor(text)
+        return true
     else
         vim.notify("V-Line/V-Block is not supported", vim.log.levels.ERROR)
-        return
+        return false
     end
 end
 
@@ -152,7 +153,9 @@ function M.InsertRubi(mode, _)
     if mode == "n" then
         insert_at_cursor(text)
     elseif mode == "v" then
-        replace_visual(text)
+        if replace_visual(text) then
+            move_back_one()
+        end
         move_back_one()
     end
 end
