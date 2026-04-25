@@ -85,13 +85,15 @@ local function build_rubi(base, target, ruby)
     target = escape_gsub_replacement(target or "")
     ruby = escape_gsub_replacement(ruby or "")
 
-    return (base:gsub("[TR]", function(c)
-        if c == "T" then
-            return target
-        elseif c == "R" then
-            return ruby
-        end
-    end))
+    return (
+        base:gsub("[TR]", function(c)
+            if c == "T" then
+                return target
+            elseif c == "R" then
+                return ruby
+            end
+        end)
+    )
 end
 
 --------------------------------------------------------------------------------
