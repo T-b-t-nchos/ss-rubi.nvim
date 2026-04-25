@@ -77,7 +77,7 @@ Discussionsでは、主に質問などを受け付けます。<br>
 - Major UI refreshes
 
 <sub>Branch names will be mentioned later.</sub><br>
-ブランチ名については後ほど後述します。<br>
+ブランチ名については後述します。<br>
 
 ## Commit Message
 
