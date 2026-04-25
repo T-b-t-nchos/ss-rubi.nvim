@@ -86,7 +86,9 @@ function M.setup(user_config)
     M.define_commands()
 end
 
-local BASE = (M.config.useHWVerticalBar and "|T《R》" or "｜T《R》")
+local function get_base()
+    return M.config.useHWVerticalBar and "|T《R》" or "｜T《R》"
+end
 
 --------------------------------------------------------------------------------
 -- define commands
@@ -126,7 +128,7 @@ function M.InsertRubi(mode, _)
         target = get_visual_text() or "Target"
     end
 
-    local text = BASE:gsub("T", target)
+    local text = get_base():gsub("T", target)
 
     if mode == "n" then
         insert_at_cursor(text)
@@ -143,8 +145,8 @@ function M.InsertRubiAndAC(_)
     end
 
     local target = get_visual_text() or "Target"
-
-    local text = BASE:gsub("T", target):gsub("R", kanji2kana(target))
+    local base = get_base()
+    local text = (base:gsub("T", target):gsub("R", kanji2kana(target)))
 
     replace_visual(text)
 end
