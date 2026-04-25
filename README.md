@@ -7,13 +7,14 @@
         <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/%20Neovim-%2357a143?style=flat&logo=Neovim&logoColor=%2357a143&label=Built%20for&labelColor=%23ffffff&link=https%3A%2F%2Fneovim.io%2F">
         <img alt="Built for Neovim" src="https://img.shields.io/badge/%20Neovim-%2357a143?style=flat&logo=Neovim&logoColor=%2357a143&label=Built%20for&labelColor=%23444444&link=https%3A%2F%2Fneovim.io%2F">
     </picture>
+</a>
 <a href="https://neovim.io/doc/install/">
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/%200.11+-%233791d4?style=flat&logo=Neovim&logoColor=%233791d4&label=Required&labelColor=%23444444&link=https%3A%2F%2Fneovim.io%2F">
         <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/badge/%200.11+-%233791d4?style=flat&logo=Neovim&logoColor=%233791d4&label=Required&labelColor=%23ffffff&link=https%3A%2F%2Fneovim.io%2F">
         <img alt="Required Neovim 0.11+" src="https://img.shields.io/badge/%200.11+-%233791d4?style=flat&logo=Neovim&logoColor=%233791d4&label=Required&labelColor=%23444444&link=https%3A%2F%2Fneovim.io%2F">
     </picture>
-<br>
+</a><br>
 <a href="./LICENSE">
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/badge/%20MIT%20License%20-%23004584?style=flat&label=License&labelColor=%23444444&link=https%3A%2F%2Fneovim.io%2F">
