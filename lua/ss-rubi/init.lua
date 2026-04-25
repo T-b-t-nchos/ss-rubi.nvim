@@ -23,6 +23,10 @@ M.config = {
 
 local curl = require("plenary.curl")
 
+local function escape_gsub_replacement(str)
+    return (str:gsub("%%", "%%%%"))
+end
+
 local function kanji2kana(text)
     local api = M.config.autoComplete.api
     local query = {}
@@ -77,6 +81,19 @@ local function replace_visual(text)
     end
 end
 
+local function build_rubi(base, target, ruby)
+    target = escape_gsub_replacement(target or "")
+    ruby = escape_gsub_replacement(ruby or "")
+
+    return (base:gsub("[TR]", function(c)
+        if c == "T" then
+            return target
+        elseif c == "R" then
+            return ruby
+        end
+    end))
+end
+
 --------------------------------------------------------------------------------
 --- setup
 --------------------------------------------------------------------------------
@@ -128,7 +145,7 @@ function M.InsertRubi(mode, _)
         target = get_visual_text() or "Target"
     end
 
-    local text = get_base():gsub("T", target)
+    local text = build_rubi(get_base(), target, "R")
 
     if mode == "n" then
         insert_at_cursor(text)
@@ -145,8 +162,9 @@ function M.InsertRubiAndAC(_)
     end
 
     local target = get_visual_text() or "Target"
-    local base = get_base()
-    local text = (base:gsub("T", target):gsub("R", kanji2kana(target)))
+    local ruby = kanji2kana(target)
+
+    local text = build_rubi(get_base(), target, ruby)
 
     replace_visual(text)
 end
