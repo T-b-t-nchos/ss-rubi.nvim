@@ -30,9 +30,7 @@ local curl = require("plenary.curl")
 
 local function kanji2kana(text)
     local api = M.config.autoComplete.api
-
     local query = {}
-
     query[api.contentQuery] = text
 
     for _, v in ipairs(api.otherQuery or {}) do
@@ -41,15 +39,15 @@ local function kanji2kana(text)
         end
     end
 
-    local res = curl.get(api.url, {
+    local ok, res = pcall(curl.get, api.url, {
         query = query,
+        timeout = 5000,
     })
-
-    if res.status ~= 200 then
+    if not ok or not res or res.status ~= 200 then
         vim.notify("Failed to get kanji2kana", vim.log.levels.ERROR)
+        return "R"
     end
-
-    return res.body
+    return vim.trim(res.body or "")
 end
 
 local function get_visual_text()
