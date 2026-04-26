@@ -156,7 +156,6 @@ function M.InsertRubi(mode, _)
         if replace_visual(text) then
             move_back_one()
         end
-        move_back_one()
     end
 end
 
