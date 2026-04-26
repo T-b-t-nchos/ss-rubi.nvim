@@ -57,6 +57,10 @@ return {
     useHWVerticalBar = false,   -- false: ｜対象《ルビ》
                                 -- true: |対象《ルビ》
 
+    defaultText = {
+        target = "Target",      -- default text for target
+        ruby = "R",             -- default text for ruby
+    },
 
     autoComplete = {
         -- If you wanna use Auto Complete, 
