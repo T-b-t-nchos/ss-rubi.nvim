@@ -6,6 +6,11 @@ local M = {}
 M.config = {
     useHWVerticalBar = false,
 
+    defaultText = {
+        target = "Target",
+        ruby = "R",
+    },
+
     autoComplete = {
         enable = false,
 
