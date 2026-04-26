@@ -147,13 +147,13 @@ end
 --------------------------------------------------------------------------------
 
 function M.InsertRubi(mode, _)
-    local target = "Target"
+    local target = M.config.defaultText.target
 
     if mode == "v" then
-        target = get_visual_text() or "Target"
+        target = get_visual_text() or M.config.defaultText.target
     end
 
-    local text = build_rubi(get_base(), target, "R")
+    local text = build_rubi(get_base(), target, M.config.defaultText.ruby)
 
     if mode == "n" then
         insert_at_cursor(text)
@@ -170,7 +170,7 @@ function M.InsertRubiAndAC(_)
         return
     end
 
-    local target = get_visual_text() or "Target"
+    local target = get_visual_text() or M.config.defaultText.target
     local ruby = kanji2kana(target)
 
     local text = build_rubi(get_base(), target, ruby)
