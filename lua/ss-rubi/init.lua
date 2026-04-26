@@ -6,6 +6,11 @@ local M = {}
 M.config = {
     useHWVerticalBar = false,
 
+    defaultText = {
+        target = "Target",
+        ruby = "R",
+    },
+
     autoComplete = {
         enable = false,
 
@@ -44,7 +49,7 @@ local function kanji2kana(text)
     })
     if not ok or not res or res.status ~= 200 then
         vim.notify("Failed to get kanji2kana", vim.log.levels.ERROR)
-        return "R"
+        return M.config.defaultText.ruby
     end
     return vim.trim(res.body or "")
 end
@@ -142,13 +147,13 @@ end
 --------------------------------------------------------------------------------
 
 function M.InsertRubi(mode, _)
-    local target = "Target"
+    local target = M.config.defaultText.target
 
     if mode == "v" then
-        target = get_visual_text() or "Target"
+        target = get_visual_text() or M.config.defaultText.target
     end
 
-    local text = build_rubi(get_base(), target, "R")
+    local text = build_rubi(get_base(), target, M.config.defaultText.ruby)
 
     if mode == "n" then
         insert_at_cursor(text)
@@ -165,7 +170,7 @@ function M.InsertRubiAndAC(_)
         return
     end
 
-    local target = get_visual_text() or "Target"
+    local target = get_visual_text() or M.config.defaultText.target
     local ruby = kanji2kana(target)
 
     local text = build_rubi(get_base(), target, ruby)
