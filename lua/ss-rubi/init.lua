@@ -49,7 +49,7 @@ local function kanji2kana(text)
     })
     if not ok or not res or res.status ~= 200 then
         vim.notify("Failed to get kanji2kana", vim.log.levels.ERROR)
-        return "R"
+        return M.config.defaultText.ruby
     end
     return vim.trim(res.body or "")
 end
